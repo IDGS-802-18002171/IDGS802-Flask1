@@ -6,12 +6,12 @@ import time
 app=Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
-@app.route("/operasbas",methods=["GET"])
-def operasbas():
+@app.route("/cinepolis",methods=["GET"])
+def cinepolis():
     return render_template("FormCine.html")
 
 @app.route("/resultado1",methods=["POST"])
-def resultado():
+def resultado1():
     des=0
     des1=0
     if request.form['txtNom'] and request.form['txtNumCom' ] and request.form['rdb'] and request.form['txtNumBol']:
@@ -21,7 +21,7 @@ def resultado():
         numBol=request.form.get("txtNumBol")
         total=int(numCom)*int(numBol)*12
         if int(numBol)>7:
-            flash("No mas de 7")
+            flash("No pueden ser mas de 7 boletas")
         if 5<int(numBol)<8:
             des=total*.15
         if 2>int(numBol)>=5:
